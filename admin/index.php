@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $row = mysqli_fetch_assoc($query);
     if ($password == $row['password']) {
       echo "Login Berhasil";
-      $_SESSION['ID-USER'] = $row['id'];
+      $_SESSION['ID_USER'] = $row['id'];
       $_SESSION['NAME'] = $row['name'];
       header("location:home.php");
     } else {
