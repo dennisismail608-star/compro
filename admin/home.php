@@ -22,6 +22,10 @@ if(empty($_SESSION['ID_USER']))
 
   <?php include 'inc/css.php' ?>
 
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.js"></script>
+
   <!-- =======================================================
   * Template Name: NiceAdmin
   * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
@@ -45,7 +49,7 @@ if(empty($_SESSION['ID_USER']))
           if (file_exists('content/' . $_GET['page'] . ".php")) {
             include 'content/' . $_GET['page'] . '.php';
           } else {
-            include 'content/notfound.php';
+            include 'content/tambah-client.php';
           }
        } else {
          include 'content/dashboard.php';
@@ -61,6 +65,23 @@ if(empty($_SESSION['ID_USER']))
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 <?php include 'inc/js.php' ?>
+
+<script>
+ $('#summernote').summernote({
+        placeholder: 'Hello stand alone ui',
+        tabsize: 2,
+        height: 120,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link', 'picture', 'video']],
+          ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+      });
+</script>
   
 
 </body>

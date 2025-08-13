@@ -98,7 +98,7 @@ if (isset($_POST['simpan'])) {
                         </div>
                         <div class="mb-3">
                             <button class="btn btn-primary" type="submit" name="simpan">Simpan</button>
-                            <a href="?page=user" class="text-muted">Kembali</a>
+                            <a href="?page=slider" class="text-muted">Kembali</a>
                         </div>
                     </form>
 

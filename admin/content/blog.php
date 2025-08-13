@@ -1,9 +1,23 @@
 <?php
-$query = mysqli_query($koneksi, "SELECT * FROM sliders ORDER BY id DESC");
+// JOIN 
+$query = mysqli_query($koneksi, "SELECT categories.name, blogs. * FROM blogs JOIN categories ON categories.id = blogs.id_category ORDER BY blogs.id DESC");
 $rows  = mysqli_fetch_all($query, MYSQLI_ASSOC);
+
+function changeIsActive($isActive)
+{
+    switch ($isActive) {
+        case '1':
+            $title = "<span class='badge bg-primary'>Publish</span>";
+            break;
+        default:
+            $title = "<span class='badge bg-warning'>Draft</span>";
+            break;
+    }
+    return $title;
+}
 ?>
 <div class="pagetitle">
-    <h1>Data Slider</h1>
+    <h1>data blog</h1>
 </div><!-- End Page Title -->
 
 <section class="section">
@@ -12,18 +26,20 @@ $rows  = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Data Slider </h5>
+                    <h5 class="card-title">Data Blog</h5>
+                    </h5>
 
                     <div class="mb-3" align="right">
-                        <a href="?page=tambah-slider" class="btn btn-primary">Tambah</a>
+                        <a href="?page=tambah-blog" class="btn btn-primary">Tambah</a>
                     </div>
                     <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th>No</th>
                                 <th>Gambar</th>
+                                <th>Kategori</th>
                                 <th>Judul</th>
-                                <th>Isi</th>
+                                <th>Status</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -31,16 +47,17 @@ $rows  = mysqli_fetch_all($query, MYSQLI_ASSOC);
                             <?php foreach ($rows as $key => $row): ?>
                                 <tr>
                                     <td><?php echo $key += 1 ?></td>
-                                    <td><img width="100" src="uploads/<?php echo $row['image'] ?>" alt=""></td>
+                                    <td><img src="uploads/<?php echo $row['image'] ?>" alt=""></td>
                                     <td><?php echo $row['title'] ?></td>
-                                    <td><?php echo $row['description'] ?></td>
+                                    <td><?php echo $row['name'] ?></td>
+                                    <td><?php echo changeIsActive($row['is_active']) ?></td>
                                     <td>
-                                        <a href="?page=tambah-slider&edit=<?php echo $row['id'] ?>" class="btn btn-sm btn-success">
+                                        <a href="?page=tambah-blog&edit=<?php echo $row['id'] ?>" class="btn btn-sm btn-success">
                                             Edit
                                         </a>
                                         <a
                                             onclick="return confirm('Apakah anda yakin akan menghapus data ini??')"
-                                            href="?page=tambah-slider&delete=<?php echo $row['id'] ?>"
+                                            href="?page=tambah-blog&delete=<?php echo $row['id'] ?>"
                                             class="btn btn-sm btn-danger">
                                             Delete
                                         </a>
