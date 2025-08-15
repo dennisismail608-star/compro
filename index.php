@@ -65,7 +65,7 @@ $rowClient = mysqli_fetch_all($queryClient, MYSQLI_ASSOC);
       if (file_exists('content/' . $_GET['page'] . ".php")) {
         include 'content/' . $_GET['page'] . '.php';
       } else {
-        include 'content/tambah-client.php';
+        include 'content/home.php';
       }
     } else {
       include 'content/home.php';

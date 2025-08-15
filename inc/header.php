@@ -9,7 +9,7 @@
 
      <nav id="navmenu" class="navmenu">
        <ul>
-         <li><a href="#hero" class="active">Home</a></li>
+         <li><a href="?page=index.php" class="active">Home</a></li>
          <li class="dropdown"><a href="about.html"><span>About</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
            <ul>
              <li><a href="team.html">Team</a></li>
@@ -26,7 +26,7 @@
            </ul>
          </li>
          <li><a href="services.html">Services</a></li>
-         <li><a href="portfolio.html">Portfolio</a></li>
+         <li><a href="?page=portofolio">Portfolio</a></li>
          <li><a href="pricing.html">Pricing</a></li>
          <li><a href="?page=blog">Blog</a></li>
          <li><a href="contact.html">Contact</a></li>
